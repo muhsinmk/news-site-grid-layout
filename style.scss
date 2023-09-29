@@ -1,0 +1,245 @@
+/* Colour Variables*/
+$offWhite: #fffdfa;
+$darkBlue: #00001a;
+$gunMetel: #5e607a;
+$red: #f15d51;
+$silver: #c5c6ce;
+$yellow: #e9aa52;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+}
+
+body {
+  background: $offWhite;
+  font-size: 15px;
+  line-height: 26px;
+  font-family: Inter;
+  color: $gunMetel;
+}
+
+.mobile {
+  display: block;
+}
+
+.desktop {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#wrapper {
+  max-width: 1110px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.active {
+  &:after {
+    display: block;
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1;
+  }
+
+  .header-nav {
+    transform: translateX(0);
+  }
+}
+
+.header-nav {
+  position: fixed;
+  inset: 0 0 0 auto;
+  background: $offWhite;
+  width: 75%;
+  transform: translateX(100%);
+  transition: all 500ms;
+  z-index: 10;
+
+  .close-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  height: 100%;
+  padding: 0px 20px;
+  list-style: none;
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: $darkBlue;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+#latest {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.featured-latest {
+  .featured-latest-entry {
+    padding: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    h2 {
+      font-size: 40px;
+      color: $darkBlue;
+      line-height: 1;
+      font-weight: 800;
+
+    }
+
+    .read-more {
+      background: $red;
+      color: $offWhite;
+      padding: 15px 40px;
+      margin-top: 20px;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+
+      &:hover {
+        background: $darkBlue;
+      }
+    }
+  }
+}
+
+.latest-widget {
+  background: $darkBlue;
+  padding: 25px;
+
+  h2 {
+    font-size: 32px;
+    color: $yellow;
+    font-size: 700;
+    padding: 0 0 25px 0;
+  }
+
+  .widget-item {
+    padding: 20px 0;
+    border-bottom: 1px solid $gunMetel ;
+
+    h3 {
+      color: $offWhite;
+
+      &:hover {
+        color: $yellow;
+      }
+    }
+
+    p {
+      color: $silver;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+#featured {
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.featured-item {
+  display: grid;
+  grid-template-columns: 100px auto;
+  gap: 25px;
+
+  .count {
+    font-size: 32px;
+    font-weight: 700;
+    color: $silver;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: $darkBlue;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+@media screen and (min-width:760px) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  #header {
+    padding: 50px 0;
+  }
+
+  .header-nav {
+    position: relative;
+    transform: none;
+  }
+
+  .menu {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0px 0px;
+  }
+
+  #latest {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .featured-latest {
+    .featured-latest-entry {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  #featured {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 50px 0;
+  }
+
+}
